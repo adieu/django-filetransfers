@@ -1,7 +1,7 @@
 from django.http import HttpResponse
 from django.utils.encoding import smart_str
 
-def serve_xsendfile(request, file, save_as, content_type):
+def serve_file(request, file, save_as, content_type):
     response = HttpResponse(ChunkedFile(file), content_type=content_type)
     response['X-Sendfile'] = file.path
     if save_as:
