@@ -3,9 +3,9 @@ from django.utils.importlib import import_module
 import mimetypes
 
 UPLOAD_BACKEND = getattr(settings, 'FILETRANSFERS_UPLOAD_BACKEND',
-                         __name__ + '.backends.default.prepare_upload')
+                         'filetransfers.backends.default.prepare_upload')
 DOWNLOAD_BACKEND = getattr(settings, 'FILETRANSFERS_DOWNLOAD_BACKEND',
-                           __name__ + '.backends.default.serve_file')
+                           'filetransfers.backends.default.serve_file')
 
 _backends_cache = {}
 

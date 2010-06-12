@@ -1,7 +1,7 @@
 from django.http import HttpResponse
 from django.utils.encoding import smart_str
 
-def simple_upload_url(request, url):
+def prepare_upload(request, url):
     return url
 
 def serve_file(request, file, save_as, content_type):
