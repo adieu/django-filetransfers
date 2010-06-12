@@ -2,9 +2,15 @@ from django.http import HttpResponse
 from django.utils.encoding import smart_str
 
 def prepare_upload(request, url):
+    """Directly uploads to the given URL"""
     return url
 
 def serve_file(request, file, save_as, content_type):
+    """
+    Serves the file in chunks for efficiency reasons, but the transfer still
+    goes through Django itself, so it's much worse than using the web server,
+    but at least it works with all configurations.
+    """
     response = HttpResponse(ChunkedFile(file), content_type=content_type)
     if save_as:
         response['Content-Disposition'] = smart_str(u'attachment; filename=%s' % save_as)
