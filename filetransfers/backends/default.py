@@ -3,7 +3,7 @@ from django.utils.encoding import smart_str
 
 def prepare_upload(request, url, **kwargs):
     """Directly uploads to the given URL"""
-    return url
+    return url, {}
 
 def serve_file(request, file, save_as, content_type, **kwargs):
     """
