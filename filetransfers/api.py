@@ -17,10 +17,7 @@ _backends_cache = {}
 # Public API
 def prepare_upload(request, url, private=False, backend=None):
     handler = _load_backend(backend, PREPARE_UPLOAD_BACKEND)
-    result = handler(request, url, private=private)
-    if isinstance(result, (tuple, list)):
-        return result
-    return result, {}
+    return handler(request, url, private=private)
 
 def serve_file(request, file, backend=None, save_as=False, content_type=None):
     # Backends are responsible for handling range requests.
