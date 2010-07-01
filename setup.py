@@ -1,4 +1,4 @@
-from setuptools import setup, find_packages
+from setuptools import setup
 import os
 
 DESCRIPTION = 'Helper for writing reusable Django apps that handle uploads and downloads'
@@ -10,7 +10,7 @@ except:
     pass
 
 setup(name='django-filetransfers',
-      packages=find_packages(),
+      packages=['filetransfers'],
       author='Waldemar Kornewald',
       url='http://www.allbuttonspressed.com/projects/django-filetransfers',
       include_package_data=True,
